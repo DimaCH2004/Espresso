@@ -1,7 +1,6 @@
 package com.ghedamsisabri.ui_testing_for_beginner
 
 import android.view.View
-import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -29,7 +28,6 @@ class ExampleInstrumentedTest {
     fun checkSecondPage() {
         NextBtn.tap()
         secondPageActivity.isViewDisplayed()
-
         isTextOnScreen("SecondaryActivity")
         Assert.assertEquals("SecondaryActivity", secondPageActivity.getText(5))
     }
@@ -37,8 +35,10 @@ class ExampleInstrumentedTest {
     fun firstTestCase(){
         mainPageView.isViewDisplayed()
         NextBtn.tap()
+        secondPageActivity.isViewDisplayed()
         isTextOnScreen("SecondaryActivity")
         BackBtn.isViewDisplayed()
+
     }
     @Test
     fun secondTestCase(){
@@ -46,6 +46,7 @@ class ExampleInstrumentedTest {
         NextBtn.tap()
         BackBtn.tap()
         NextBtn.isViewDisplayed()
+        isTextOnScreen("MainActivity")
         firstPageActivity.isViewDisplayed()
     }
 
